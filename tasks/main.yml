@@ -14,46 +14,5 @@
 #   under the License.
 #
 
-- name: Retrieve rdobot source
-  git:
-    repo: "{{ rdobot_repository }}"
-    dest: "{{ rdobot_source_path }}"
-    version: "master"
-
-# Setuptools need to be up-to-date or mock fails to install
-- name: Setup rdobot virtualenv
-  pip:
-    name: "setuptools"
-    virtualenv: "{{ rdobot_virtualenv_path }}"
-    state: "latest"
-
-- name: Install rdobot dependencies
-  pip:
-    virtualenv: "{{ rdobot_virtualenv_path }}"
-    requirements: "{{ rdobot_source_path }}/requirements.txt"
-
-- name: Setup rdobot config
-  template:
-    src: "templates/config.py.j2"
-    dest: "{{ rdobot_config }}"
-    mode: "0750"
-    owner: "root"
-    group: "root"
-
-- name: Setup systemd unit
-  template:
-    src: "templates/rdobot.service.j2"
-    dest: "/lib/systemd/system/rdobot.service"
-
-- name: Link systemd unit
-  file:
-    src: "/lib/systemd/system/rdobot.service"
-    dest: "/etc/systemd/system/rdobot.service"
-    state: "link"
-  notify: "Reload systemd"
-
-- name: Enable and start rdobot
-  service:
-    name: "rdobot"
-    state: "started"
-    enabled: "yes"
+- include: packages.yml
+- include: setup.yml

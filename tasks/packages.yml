@@ -14,20 +14,12 @@
 #   under the License.
 #
 
-rdobot_repository: "https://github.com/rdo-infra/rdobot"
-rdobot_source_path: "/usr/local/src/rdobot"
-rdobot_virtualenv_path: "{{ rdobot_path }}/rdobot-virtualenv"
+- name: Enable extra repositories
+  package:
+    name: "{{ rdobot_extra_repositories }}"
+    state: "present"
 
-rdobot_config: "{{ rdobot_source_path }}/rdobot/config.py"
-rdobot_systemd_wrapper: "/usr/local/bin/rdobot.sh"
-
-rdobot_nickserv_password: "changeme"
-rdobot_sensu_password: "changeme"
-
-rdobot_extra_repositories:
-  - epel-release
-
-rdobot_base_packages:
-  - python-pip
-  - python-setuptools
-  - git
+- name: Install base packages
+  package:
+    name: "{{ rdobot_base_packages }}"
+    state: "present"
