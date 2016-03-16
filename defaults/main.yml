@@ -16,7 +16,7 @@
 
 rdobot_repository: "https://github.com/rdo-infra/rdobot"
 rdobot_source_path: "/usr/local/src/rdobot"
-rdobot_virtualenv_path: "{{ rdobot_path }}/rdobot-virtualenv"
+rdobot_virtualenv_path: "{{ rdobot_source_path }}/rdobot-virtualenv"
 
 rdobot_config: "{{ rdobot_source_path }}/rdobot/config.py"
 rdobot_systemd_wrapper: "/usr/local/bin/rdobot.sh"
@@ -30,4 +30,5 @@ rdobot_extra_repositories:
 rdobot_base_packages:
   - python-pip
   - python-setuptools
+  - python-virtualenv
   - git

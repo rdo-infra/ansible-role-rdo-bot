@@ -40,6 +40,14 @@
     owner: "root"
     group: "root"
 
+- name: Setup systemd wrapper
+  template:
+    src: "templates/rdobot.sh.j2"
+    dest: "/usr/local/bin/rdobot.sh"
+    mode: "0750"
+    owner: "root"
+    group: "root"
+
 - name: Setup systemd unit
   template:
     src: "templates/rdobot.service.j2"
@@ -51,6 +59,9 @@
     dest: "/etc/systemd/system/rdobot.service"
     state: "link"
   notify: "Reload systemd"
+
+- name: Flush handlers
+  meta: flush_handlers
 
 - name: Enable and start rdobot
   service:
