@@ -25,11 +25,7 @@ rdobot_nickname: "rdobot"
 rdobot_nickserv_password: "changeme"
 rdobot_sensu_password: "changeme"
 
-rdobot_extra_repositories:
-  - epel-release
-
 rdobot_base_packages:
-  - python-pip
   - python-setuptools
   - python-virtualenv
   - git
