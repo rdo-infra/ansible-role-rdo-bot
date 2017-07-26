@@ -21,6 +21,7 @@ rdobot_virtualenv_path: "{{ rdobot_source_path }}/rdobot-virtualenv"
 rdobot_config: "{{ rdobot_source_path }}/rdobot/config.py"
 rdobot_systemd_wrapper: "/usr/local/bin/rdobot.sh"
 
+rdobot_nickname: "rdobot"
 rdobot_nickserv_password: "changeme"
 rdobot_sensu_password: "changeme"
 
