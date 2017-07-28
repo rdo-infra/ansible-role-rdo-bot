@@ -20,10 +20,14 @@
     dest: "{{ rdobot_source_path }}"
     version: "master"
 
-# Setuptools need to be up-to-date or mock fails to install
+# Setuptools and pip should be up to date
 - name: Setup rdobot virtualenv
+  vars:
+    packages:
+      - pip
+      - setuptools
   pip:
-    name: "setuptools"
+    name: "{{ packages }}"
     virtualenv: "{{ rdobot_virtualenv_path }}"
     state: "latest"
 
