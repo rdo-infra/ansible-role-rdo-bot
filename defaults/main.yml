@@ -14,7 +14,7 @@
 #   under the License.
 #
 
-rdobot_repository: "https://github.com/rdo-infra/rdobot"
+rdobot_repository: "https://github.com/rdo-infra/rdo-bot"
 rdobot_source_path: "/usr/local/src/rdobot"
 rdobot_virtualenv_path: "{{ rdobot_source_path }}/rdobot-virtualenv"
 
