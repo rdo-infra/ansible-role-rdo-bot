@@ -70,9 +70,9 @@ SUPPRESS_CMD_NOT_FOUND = True
 # Monitoring plugin configuration                     #
 #######################################################
 MONITORING_BROADCAST_CHANNELS = ['#rdo-dev', '#rdo']
-MONITORING_DASHBOARD = 'http://uchiwa.monitoring.rdoproject.org'
+MONITORING_DASHBOARD = 'https://uchiwa.monitoring.rdoproject.org'
 MONITORING_DASHBOARD_USERNAME = 'rdo'
 MONITORING_DASHBOARD_PASSWORD = 'rdo'
-MONITORING_ENDPOINT = 'http://api.monitoring.rdoproject.org'
+MONITORING_ENDPOINT = '{{ rdobot_sensu_api }}'
 MONITORING_USERNAME = 'sensu'
 MONITORING_PASSWORD = '{{ rdobot_sensu_password }}'
