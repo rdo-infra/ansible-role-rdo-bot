@@ -1,23 +1,18 @@
 import logging
 import os
 
-# For full configuration options, look at
-# https://github.com/errbotio/errbot/blob/master/errbot/config-template.py
-
-#######################################################
-# Core Err configuration                              #
-#######################################################
+# For full config: https://raw.githubusercontent.com/errbotio/errbot/4479437b236c8e76eb906a01fa1a8b4f5a0245b1/errbot/config-template.py
+##########################################################################
+# Core Err configuration                                                 #
+##########################################################################
 
 BACKEND = 'IRC'
 STORAGE = 'Shelf'
-BOT_EXTRA_STORAGE_PLUGINS_DIR = None
-
 BOT_DATA_DIR = os.path.dirname(os.path.realpath(__file__)) + "/data"
 BOT_EXTRA_PLUGIN_DIR = os.path.dirname(os.path.realpath(__file__)) + "/plugins"
 BOT_LOG_FILE = os.path.dirname(os.path.realpath(__file__)) + "/logs/err.log"
 BOT_LOG_LEVEL = logging.INFO
-
-BOT_ASYNC = True
+AUTOINSTALL_DEPS = False
 
 #######################################################
 # IRC Config                                          #
@@ -67,6 +62,10 @@ ACCESS_CONTROLS = {
     }
 }
 
+HIDE_RESTRICTED_COMMANDS = True
+HIDE_RESTRICTED_ACCESS = True
+SUPPRESS_CMD_NOT_FOUND = True
+
 #######################################################
 # Monitoring plugin configuration                     #
 #######################################################
@@ -77,12 +76,3 @@ MONITORING_DASHBOARD_PASSWORD = 'rdo'
 MONITORING_ENDPOINT = 'http://api.monitoring.rdoproject.org'
 MONITORING_USERNAME = 'sensu'
 MONITORING_PASSWORD = '{{ rdobot_sensu_password }}'
-
-#######################################################
-# Misc parameters                                     #
-#######################################################
-BOT_LOG_SENTRY = False
-SENTRY_DSN = ''
-SENTRY_LOGLEVEL = BOT_LOG_LEVEL
-CHATROOM_RELAY = {}
-REVERSE_CHATROOM_RELAY = {}
