@@ -31,6 +31,12 @@
     virtualenv: "{{ rdobot_virtualenv_path }}"
     state: "latest"
 
+# Workaround for pip 10.0.0
+- name: Install 3to2 before other rdobot dependencies
+    name: "3to2"
+    virtualenv: "{{ rdobot_virtualenv_path }}"
+    state: "latest"
+
 - name: Install rdobot dependencies
   pip:
     virtualenv: "{{ rdobot_virtualenv_path }}"
