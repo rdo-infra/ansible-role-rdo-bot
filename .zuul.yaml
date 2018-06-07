@@ -1,0 +1,11 @@
+- project:
+    name: rdo-infra/ansible-role-rdo-bot
+    check:
+      jobs:
+        - tox-linters
+        - legacy-rdo-infra-playbooks-integration-sensu-server:
+            voting: false
+    gate:
+      queue: ansible-role-rdo-base
+      jobs:
+        - tox-linters
